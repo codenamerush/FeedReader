@@ -70,15 +70,15 @@ $(function() {
 
         it("can be toggled", function() {
             //stores the menu icon 
-            $trigger = $('.menu-icon-link')
+            $trigger = $('.menu-icon-link');
             //triggers click event for the menu button
-            $trigger.trigger('click')
+            $trigger.trigger('click');
             //it should get rid of the class when clicked first
-            expect('body').not.toHaveClass('menu-hidden')
+            expect('body').not.toHaveClass('menu-hidden');
             //trigger click event again
-            $trigger.trigger('click')
+            $trigger.trigger('click');
             //it should now have the class again to hide the menu
-            expect('body').toHaveClass('menu-hidden')
+            expect('body').toHaveClass('menu-hidden');
         });
 
          /* TODO: Write a test that ensures the menu changes
