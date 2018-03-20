@@ -72,8 +72,7 @@ $(function() {
 
         it('are present after loadFeed function is completed', function(done) {
             //checks that there is at least one entry
-            var entries = $('.entry');
-            expect(entries.length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
         });
     });
