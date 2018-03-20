@@ -84,19 +84,22 @@ $(function() {
         var feed2;
  
         beforeEach(function(done) {
-            loadFeed(0,function(){
+            loadFeed(0,function() {
                 //store first feed then load second feed
                 feed1 = $('.feed').html();
-                loadFeed(1,done);
+                loadFeed(1,function() {
+                    //get the next feed
+                    feed2 = $('.feed').html();
+                    done();
+                });
             });
         });
   
         it('should have different items', function(done){
-            //get the next feed
-            feed2 = $('.feed').html();
             //check that both feeds aren't the same
             expect(feed1).not.toBe(feed2);
             done();
-          });
-      });
+        });
+
+    });
 }());
