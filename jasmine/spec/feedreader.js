@@ -44,20 +44,20 @@ $(function() {
 
         it("is hidden by default", function() {
             //checks the presence of a class in body
-            expect($('body')).toHaveClass('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
         it("can be toggled", function() {
             //stores the menu icon 
-            $trigger = $('.menu-icon-link');
+            var trigger = $('.menu-icon-link');
             //triggers click event for the menu button
-            $trigger.trigger('click');
+            trigger.click();
             //it should get rid of the class when clicked first
-            expect('body').not.toHaveClass('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
             //trigger click event again
-            $trigger.trigger('click');
+            trigger.click();
             //it should now have the class again to hide the menu
-            expect('body').toHaveClass('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
 
@@ -71,8 +71,9 @@ $(function() {
         });
 
         it('are present after loadFeed function is completed', function(done) {
-            //checks presence of .entry in .feed
-            expect($('.feed')).toContainElement('.entry');
+            //checks that there is at least one entry
+            var entries = $('.entry');
+            expect(entries.length).toBeGreaterThan(0);
             done();
         });
     });
